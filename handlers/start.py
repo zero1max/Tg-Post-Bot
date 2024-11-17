@@ -3,18 +3,15 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import CommandStart, Command
 from loader import dp, bot
 
-# Do'stingiz kanalining username va post ID'ni kiriting
-FRIEND_CHANNEL_USERNAME = "channel_name"  # @ belgisiz yozing
-FRIEND_POST_ID = 'post_id'  # Post ID
+FRIEND_CHANNEL_USERNAME = "channel_name" 
+FRIEND_POST_ID = 'post_id'
 
 @dp.message(CommandStart())
 async def start(message: types.Message):
-    """Bot start komandasiga javob"""
     await message.reply("Salom! Men siz uchun postlarni ulashaman. 😊")
 
 @dp.message(Command("post"))
 async def post_to_channel(message: types.Message):
-    """Postni ulashish"""
     post_header = "description 👇"
     post_url = f"https://t.me/{FRIEND_CHANNEL_USERNAME}/{FRIEND_POST_ID}"
 
